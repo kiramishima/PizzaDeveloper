@@ -1,0 +1,34 @@
+<Page xmlns="http://www.nativescript.org/tns.xsd" navigatedTo="navigatedTo" loaded="onLoad">
+	<Page.actionBar>
+		<ActionBar title="Pizzas Cart">
+			<ActionBar.actionItems>
+				<ActionItem icon="res://pizzas" tap="backToList" iosPosition="right" />
+			</ActionBar.actionItems>
+		</ActionBar>
+	</Page.actionBar>
+	<GridLayout rows="*, auto" columns="*, *, *, *">
+		<ScrollView row="0" colSpan="4">
+			<Repeater items="{{ products }}">
+				<Repater.itemsLayout>
+					<StackLayout />
+				</Repater.itemsLayout>
+				<Repeater.itemTemplate>
+					<GridLayout rows="auto, auto, auto" columns="*, *, *, *">
+						<Image src="{{ picUrl }}" stretch="aspectFill" row="0" col="0" rowSpan="2" />
+						<Label text="{{ quantity + 'x' }}" row="0" col="1" />
+						<Label text="{{ name }}" row="0" col="2" colSpan="2" />
+						<Label text="{{ subtotal | money() }}" row="1" col="1" />
+						<Label text="Remove" tap="removeProduct" row="1" col="2" colSpan="2" class="remove-btn bold" />
+						<Border row="2" colSpan="4" borderRadius="0" borderWidth="1" borderColor="#888888" />
+					</GridLayout>
+				</Repeater.itemTemplate>
+			</Repeater>
+		</ScrollView>
+		<GridLayout row="1" colSpan="4" rows="auto, *" columns="*, *, *, *" id="footer" class="centered">
+			<Label row="0" col="0" text="Total: " class="bold text-right" />			
+			<Label row="0" col="1" text="{{ total | money() }}" class="bold" />
+			<Button row="1" col="0" colSpan="2" text="Back" tap="backToList" />
+			<Button row="1" col="2" colSpan="2" text="Send order" tap="sendOrder" />
+		</GridLayout>
+	</GridLayout>
+</Page>

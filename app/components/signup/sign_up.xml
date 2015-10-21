@@ -1,0 +1,24 @@
+<Page id="SignUpPage" xmlns="http://www.nativescript.org/tns.xsd" loaded="onPageLoaded" actionBarHidden="true">
+  <StackLayout cssClass="mainSignUp">
+    
+    <StackLayout cssClass="signupContent">
+      <StackLayout cssClass="signupHeader">
+        <Label text="Mi Pizza Dev" />
+      </StackLayout>
+      
+        <TextField hint="Nombre(s)" text="{{ firstName }}" />
+        <TextField hint="Apellidos" text="{{ lastName }}" />
+        <TextField hint="E-mail" text="{{ email }}" />
+        <TextField hint="Telefono" text="{{ phone }}" />
+        <TextField hint="Direccion" text="{{ address }}" textWrap="true" />
+        <TextField hint="Contraseña" text="{{ password }}" secure="true" />
+        
+          <Button text="Regresar" cssClass="btnBack" tap="goBack" col="0"/>
+          <Button text="Enviar" cssClass="btnRegistrarse" tap="{{ SignUp }}" col="1"/>
+      
+    </StackLayout>
+    <AbsoluteLayout  cssClass="activity-indicator">
+      <ActivityIndicator busy="{{ isLoading }}" cssClass="activity-indicator" />
+    </AbsoluteLayout>
+  </StackLayout>
+</Page>

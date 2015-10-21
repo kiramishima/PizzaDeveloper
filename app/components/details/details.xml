@@ -1,0 +1,28 @@
+<Page navigatedTo="navigatedTo">
+	<Page.actionBar>
+		<ActionBar title="{{ product.name }}">
+			<ActionBar.actionItems>
+				<ActionItem icon="res://cart" tap="goToCart" iosPosition="right" />
+			</ActionBar.actionItems>
+		</ActionBar>
+	</Page.actionBar>
+	<ScrollView verticalAlignment="center">
+		<GridLayout rows="auto, auto, auto, auto, auto, auto" columns="*,*,*,*,*">
+			<Image row="0" colSpan="5" src="{{ product.picUrl }}" stretch="none" class="centered" />
+
+			<Label row="1" colSpan="5" text="{{ product.ingredients | asList() }}" textWrap="true" class="text-centered text-small" />
+
+			<Label row="2" colSpan="5" text="{{ product.nett }}" class="text-centered text-big" />
+
+			<Label row="3" colSpan="5" id="description" text="{{ product.description }}" class="text-small text-centered italic" textWrap="true" />
+			
+			<Label row="4" colSpan="5" text="{{ product.price | money() }}" class="text-huge bold text-centered" />
+			
+			<Image row="5" col="0" src="res://back" stretch="fill" width="48" height="48" tap="backToListView" class="action-btn" />
+			<Button row="5" col="1" id="remove-btn" text="-" tap="removeOne" class="bold text-big" />
+			<Label row="5" col="2" text="{{ quantity + 'x' }}" verticalAlignment="center" class="text-big text-centered"/>
+			<Button row="5" col="3" id="add-btn" text="+" tap="addOne" class="bold text-big" />
+			<Image row="5" col="4" src="res://add_to_order" stretch="fill" width="48" height="48" tap="addToOrder" class="action-btn" />
+		</GridLayout>
+	</ScrollView>
+</Page>

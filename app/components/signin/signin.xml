@@ -1,0 +1,21 @@
+<Page id="SignInPage" xmlns="http://www.nativescript.org/tns.xsd" loaded="onPageLoaded" actionBarHidden="true">
+	<StackLayout cssClass="mainLogin">
+		
+		<StackLayout cssClass="loginContent">
+			<StackLayout cssClass="loginHeader">
+				<Label text="Mi Pizza Dev" />
+			</StackLayout>
+			<StackLayout></StackLayout>
+			<TextField hint="E-mail" text="{{ email }}" />
+			<TextField hint="Contraseña" text="{{ password }}" secure="true" />
+			
+			<Button text="Ingresar" cssClass="login-button" tap="{{ SignIn }}" />
+			<Label text="¿Aun no tienes una cuenta?" cssClass="sub-title" />
+			<Button text="Registrarse" cssClass="signup-button" tap="goToSignUp" />
+			
+		</StackLayout>
+		<GridLayout visibility="{{ isLoading ? 'visible' : 'collapsed' }}" verticalAlignment="stretch" horizontalAlignment="stretch" >
+            <ActivityIndicator busy="{{ isLoading }}" cssClass="activity-indicator" />
+        </GridLayout>
+	</StackLayout>
+</Page>
